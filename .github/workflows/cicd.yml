@@ -1,0 +1,21 @@
+name: cicd pipeline
+on:
+    push:
+        branches:
+            - master
+jobs:
+    run-app:
+        runs-on: ubuntu-latest      
+            
+        steps:
+            - name: checkout repositery
+              uses: actions/checkout@v3
+
+            - name: setup nodejs
+              uses: actions/setup-node@v3
+              with: 
+                node-version: '21'
+
+            - name: install dependecies
+              run: npm install
+
